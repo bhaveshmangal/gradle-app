@@ -35,9 +35,10 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-sonarqube {
+sonar {
     properties {
-        property 'sonar.projectKey', 'hello-gradle'
-        property 'sonar.projectName', 'hello-gradle'
+        property "sonar.projectKey", "tH-YOT7GAnWVF1S8"
+        property "sonar.projectName", "Gradle App"
     }
 }
+        
