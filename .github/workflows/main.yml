@@ -3,7 +3,7 @@ name: Build and Scan with Blacklock Code Scanner
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-scan:
