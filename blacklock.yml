@@ -1,3 +1,3 @@
-# blacklock.yml
-setting1: "some_value"
-setting2: 456
+SONAR_PROJECTKEY: "nzoHSx.F_dvd9rfh"
+EXCLUDE: "src/tests/**,docs/**,**.java"
+# test
