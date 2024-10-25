@@ -1,51 +1,20 @@
-name: Build
+name: Run Testing Action
 
 on:
   push:
     branches:
-      - master
-
+      - main
 
 jobs:
-  build:
-    name: Build and analyze
+  run-testing-action:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-      - name: Cache SonarQube packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Gradle packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-          restore-keys: ${{ runner.os }}-gradle
-      - name: Build and analyze
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: sh gradlew build sonar --info
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-
-      - name: Pull Blacklock Code Scanner Docker Image
-        run: docker pull blacklocksec/code-scanner:latest
-
-      - name: Run Blacklock Code Scanner
-        run: |
-          docker run --rm \
-          -v $(pwd):/app \
-          -e SONAR_PROJECTKEY="new_update" \
-          -e SONAR_HOST_URL=${{ secrets.SONAR_HOST_URL }} \
-          -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }} \
-          blacklocksec/code-scanner:latest
+      - name: Run Testing Action
+        uses: knassar702/testing_action@v1.0
+        with:
+          param1: "example_value1"
+          param2: "example_value2"
