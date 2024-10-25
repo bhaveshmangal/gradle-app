@@ -1,4 +1,4 @@
-name: Run Testing Action
+name: Build and Scan
 
 on:
   push:
@@ -6,15 +6,16 @@ on:
       - master
 
 jobs:
-  run-testing-action:
+  build-and-scan:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Testing Action
-        uses: knassar702/testing_action@v1.1
+      - name: Run Blacklock Code Scanner Action
+        uses: knassar702/testing_action@v1.0
         with:
-          param1: "example_value1"
-          param2: "example_value2"
+          sonar_projectkey: "1gquF-K8I.RdK8pa"
+          sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
+          sonar_token: ${{ secrets.SONAR_TOKEN }}
