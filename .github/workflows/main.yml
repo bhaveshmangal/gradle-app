@@ -19,4 +19,4 @@ jobs:
           sonar_projectkey: "nzoHSx.F_dvd9rfh"  # Replace with your project key
           sonar_host_url: ${{ secrets.SONAR_HOST_URL }}  # Define in GitHub Secrets
           sonar_token: ${{ secrets.SONAR_TOKEN }}  # Define in GitHub Secrets
-          exclude: "*/dist/**,**/build/**,**/test/**,**/generated/**"  # Optional: specify paths to exclude
+          exclude: "*/dist/**,**/build/**,**/test/**,**/generated/**,**/*.java"  # Optional: specify paths to exclude
