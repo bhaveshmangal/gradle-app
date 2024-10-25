@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Testing Action
-        uses: knassar702/testing_action@v1.0
+        uses: knassar702/testing_action@v1.1
         with:
           param1: "example_value1"
           param2: "example_value2"
