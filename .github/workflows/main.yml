@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Blacklock Code Scanner Action
-        uses: knassar702/testing_action@v1.0
+        uses: knassar702/testing_action@v1.1
         with:
           sonar_projectkey: "1gquF-K8I.RdK8pa"
           sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
