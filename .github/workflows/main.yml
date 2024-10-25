@@ -1,9 +1,9 @@
-name: Build and Scan with Blacklock Code Scanner
-# test
+name: Build and Scan
+
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-scan:
@@ -11,12 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Ensures the code is available in /github/workspace
+        uses: actions/checkout@v3
 
-      - name: Run Blacklock Code Scanner Action
-        uses: knassar702/testing_action@v1.1  # Use your action’s version tag here
-        with:
-          sonar_projectkey: "nzoHSx.F_dvd9rfh"  # Replace with your project key
-          sonar_host_url: ${{ secrets.SONAR_HOST_URL }}  # Define in GitHub Secrets
-          sonar_token: ${{ secrets.SONAR_TOKEN }}  # Define in GitHub Secrets
-          exclude: "*/dist/**,**/build/**,**/test/**,**/generated/**,**/*.java"  # Optional: specify paths to exclude
+      - name: Run Blacklock Code Scanner
+        uses: knassar702/testing_action@v1.1
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # Optional if using blacklock.yml
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Optional if using blacklock.yml
