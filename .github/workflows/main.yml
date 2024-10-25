@@ -16,7 +16,7 @@ jobs:
       - name: Run Blacklock Code Scanner Action
         uses: knassar702/testing_action@v1.1  # Use your action’s version tag here
         with:
-          sonar_projectkey: "1gquF-K8I.RdK8pa"  # Replace with your project key
+          sonar_projectkey: "nzoHSx.F_dvd9rfh"  # Replace with your project key
           sonar_host_url: ${{ secrets.SONAR_HOST_URL }}  # Define in GitHub Secrets
           sonar_token: ${{ secrets.SONAR_TOKEN }}  # Define in GitHub Secrets
           exclude: "src/test,src/docs"  # Optional: specify paths to exclude
