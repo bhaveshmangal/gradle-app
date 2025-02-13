@@ -34,12 +34,10 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
-
 sonar {
     properties {
-        property "sonar.projectKey", "ezDTCvdu7N6JiAou"
-        property "sonar.projectName", "github_gradle"
+        property "sonar.projectKey", "DeDkV2LzH7Bqh632"
+        property "sonar.projectName", "github-gradle"
     }
-}
-        
+}   
         
