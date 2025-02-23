@@ -1,20 +1,29 @@
-name: Build and Scan
+name: Code Scan
+
 
 on:
-  push:
-    branches:
-      - master
+ push:
+   branches:
+     - master
+
 
 jobs:
-  build-and-scan:
-    runs-on: ubuntu-latest
+ blacklock-scan:
+   runs-on: ubuntu-latest
+   container:
+     image: blacklocksec/code-scanner:staging  # Directly use the scanner image
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Run Blacklock Code Scanner
-        uses: knassar702/testing_action@v1.1
-        env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}  # Optional if using blacklock.yml
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Optional if using blacklock.yml
+   env:
+     SONAR_PROJECTKEY: "wfmLIU383GEhPgmU"
+     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+   steps:
+     - name: Checkout Code
+       uses: actions/checkout@v4
+
+
+     - name: Run Blacklock Code Scanner
+       run: /usr/local/bin/run.sh  # Adjust if the script
