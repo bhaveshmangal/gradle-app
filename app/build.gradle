@@ -1,8 +1,7 @@
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
-    id 'org.sonarqube' version '5.0.0.4638'
+    id "org.sonarqube" version "5.0.0.4638"
 }
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
